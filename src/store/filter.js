@@ -1,13 +1,16 @@
 const filterStore = {
   state () {
     return {
-      filterVariantCountry: '',
-      filterVariantScore: ''
+      filterCountry: '',
+      filterScore: ''
     }
   },
   mutations: {
-    changeFilterVariant (state, value) {
-      state.filterVariant = value
+    changeFilterCountry (state, value) {
+      state.filterCountry = value
+    },
+    changeFilterScore(state, searchByCountry) {
+      state.filterScore = searchByCountry;
     },
   }
 }
