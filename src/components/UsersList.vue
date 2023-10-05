@@ -5,12 +5,12 @@
   >
     <v-list three-line>
       <v-subheader>List</v-subheader>
+      <v-slide-x-transition group>
+        <div v-for="(item, index) in filtredUsers" :key="index" >
+          <v-divider v-if="index != 0" :inset="true"  />
 
-      <div v-for="(item, index) in filtredUsers" :key="index" >
-        <v-divider v-if="index != 0" :inset="true"  />
-
-        <v-list-item>
-          <v-list-item-avatar @click="item.showTooltip = !item.showTooltip">
+          <v-list-item>
+            <v-list-item-avatar @click="item.showTooltip = !item.showTooltip">
             <v-tooltip bottom
               v-model="item.showTooltip"
             >
@@ -19,16 +19,17 @@
                 <v-img v-bind="props" :src="item.avatar" />
               </template>
             </v-tooltip>
-          </v-list-item-avatar>
+            </v-list-item-avatar>
 
-          <v-list-item-content>
-            <v-list-item-title v-html="item.title"></v-list-item-title>
-            <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
-            <v-list-item-subtitle v-html="item.country"></v-list-item-subtitle>
-            <v-list-item-subtitle v-html="`Score: ${item.score}`"></v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-      </div>
+            <v-list-item-content>
+              <v-list-item-title v-html="item.title"></v-list-item-title>
+              <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
+              <v-list-item-subtitle v-html="item.country"></v-list-item-subtitle>
+              <v-list-item-subtitle v-html="`Score: ${item.score}`"></v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </div>
+      </v-slide-x-transition>
     </v-list>
   </v-card>
 </template>
