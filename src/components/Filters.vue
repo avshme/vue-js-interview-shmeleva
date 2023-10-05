@@ -5,7 +5,7 @@
       :items="countryList"
       clearable
       label="Filter by country"
-      @change="changeFilterCountry(currentFilterCountry)"
+      @change="onChange('changeFilterCountry', currentFilterCountry)"
     />
 
     <v-select
@@ -13,7 +13,7 @@
       :items="scoreList"
       clearable
       label="Filter by score"
-      @change="changeFilterScore(currentFilterScore)"
+      @change="onChange('changeFilterScore', currentFilterScore)"
     />
   </div>
 </template>
@@ -49,12 +49,9 @@ export default {
     this.currentFilterScore = this.filterScore;
   },
   methods: {
-    changeFilterCountry (value) {
-      this.$store.commit("changeFilterCountry", value);
-    },
-    changeFilterScore (value) {
-      this.$store.commit("changeFilterScore", value);
-    },
+    onChange (mutationName, value) {
+      this.$store.commit(mutationName, value);
+    }
   },
 }
 </script>
